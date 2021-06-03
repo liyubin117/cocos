@@ -19,11 +19,17 @@ export default class NewClass extends cc.Component {
     @property
     date:string = "2021-10-12"
 
+    @property
+    step:number = 20
+
+    @property
+    isGoRight:boolean = true
+
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
     onLoad() {
-      this.node.on("mousedown", this.moveLeft, this)
+      this.node.on("mousedown", this.move, this)
     }
 
     start () {
@@ -40,6 +46,11 @@ export default class NewClass extends cc.Component {
       cc.warn(m + n)
       cc.warn(this.sum(n,20))
       cc.warn(this.text)
+    }
+
+    move(){
+      if(this.isGoRight) this.node.x+=this.step
+      else this.node.x-=this.step
     }
 
     sum(x:number, y:number):number {
