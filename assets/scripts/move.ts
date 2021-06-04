@@ -25,6 +25,9 @@ export default class NewClass extends cc.Component {
     @property
     isGoRight:boolean = true
 
+    @property(cc.AudioClip)
+    audio:cc.AudioClip = null
+
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
@@ -52,6 +55,8 @@ export default class NewClass extends cc.Component {
       if(this.isGoRight) this.node.x+=this.step
       else this.node.x-=this.step
       cc.log("position: "+this.node.x+","+this.node.y)
+      //播放音频
+      if(this.audio!=null) cc.audioEngine.play(this.audio, false, 20)
     }
 
     sum(x:number, y:number):number {
