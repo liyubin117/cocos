@@ -51,6 +51,7 @@ export default class NewClass extends cc.Component {
     move(){
       if(this.isGoRight) this.node.x+=this.step
       else this.node.x-=this.step
+      cc.log("position: "+this.node.x+","+this.node.y)
     }
 
     sum(x:number, y:number):number {
